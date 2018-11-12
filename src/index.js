@@ -1,8 +1,7 @@
 import CityForm from './scenes/Main/components/CityForm/CityForm';
+import DataFetcher from './scenes/Main/components/DataFetcher/DataFetcher';
 import HTMLElem from './scenes/Main/components/HTMLElem/HTMLElem';
 import './style.scss';
-
-import DataFetcher from './scenes/Main/components/DataFetcher/DataFetcher';
 
 // DataFetcher.getWeatherData('Mexico City', 'imperial').then(data => console.log(data));
 // DataFetcher.getWeatherData('Mexico City', 'metric').then(data => console.log(data));
@@ -16,4 +15,8 @@ const icon = HTMLElem('i', ['fas', 'fa-temperature-high', 'fa-10x'], column.node
 icon.node.style.color = 'white';
 const form = CityForm();
 form.node.classList.toggle('my-5');
+const onClickSubmit = () => {
+  DataFetcher.getWeatherData(form.getInputData().city, 'metric').then(data => console.log(data));
+};
+form.addClickCallback(onClickSubmit);
 column.node.appendChild(form.node);
