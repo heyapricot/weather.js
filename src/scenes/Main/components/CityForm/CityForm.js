@@ -10,7 +10,7 @@ const CityForm = () => {
   button.node.textContent = 'Submit';
 
   const addClickCallback = callbackfn => clickCallbacks.push(callbackfn);
-  const getInputData = () => [cityInput.node].map(input => input.value);
+  const getInputData = () => ({ city: cityInput.node.value });
   const onClickSubmit = () => {
     clickCallbacks.forEach(callbackfn => callbackfn());
   };
