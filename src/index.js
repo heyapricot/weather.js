@@ -1,7 +1,6 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
 import CityForm from './scenes/Main/components/CityForm/CityForm';
 import HTMLElem from './scenes/Main/components/HTMLElem/HTMLElem';
-import './style.css';
+import './style.scss';
 
 import DataFetcher from './scenes/Main/components/DataFetcher/DataFetcher';
 
