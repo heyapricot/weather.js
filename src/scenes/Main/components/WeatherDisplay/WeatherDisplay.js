@@ -8,13 +8,10 @@ const WeatherDisplay = (() => {
   icon.node.style.color = 'white';
   const textDisplay = HTMLElem('h1', ['display-3'], node);
   textDisplay.node.id = 'temperatureText';
-  const units = {
-    metric: 'ºC',
-    imperial: 'ºF',
-  };
-  const setTemperature = (temperature, system = units.metric) => { textDisplay.node.textContent = `${temperature} ${system}`; };
+  const units = () => ({ metric: 'ºC', imperial: 'ºF' });
+  const setTemperature = (temperature, system = units().metric) => { textDisplay.node.textContent = `${temperature} ${system}`; };
 
-  return { node, setTemperature };
+  return { node, setTemperature, units };
 })();
 
 export default WeatherDisplay;
