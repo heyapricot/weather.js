@@ -2,11 +2,12 @@ import HTMLElem from '../HTMLElem/HTMLElem';
 
 const CityForm = () => {
   const clickCallbacks = [];
-  const form = HTMLElem('form', []);
-  const { node } = form;
-  const cityInput = HTMLElem('input', ['form-control', 'my-3'], node);
+  const inputGroup = HTMLElem('div', ['input-group']);
+  const { node } = inputGroup;
+  const cityInput = HTMLElem('input', ['form-control'], node);
   cityInput.node.placeholder = 'Please enter your city';
-  const button = HTMLElem('div', ['btn', 'btn-primary'], node);
+  const buttonContainer = HTMLElem('div', ['input-group-append'], node);
+  const button = HTMLElem('div', ['btn', 'btn-primary'], buttonContainer.node);
   button.node.textContent = 'Submit';
 
   const addClickCallback = callbackfn => clickCallbacks.push(callbackfn);
