@@ -5,8 +5,7 @@ const WeatherDisplay = (() => {
   const container = HTMLElem('div', ['container']);
   const { node } = container;
   node.id = 'temperatureText';
-  const icon = HTMLElem('i', ['fas', 'fa-thermometer-three-quarters', 'fa-10x'], node);
-  icon.node.style.color = 'white';
+  const icon = HTMLElem('i', ['fas', 'fa-thermometer-three-quarters', 'fa-10x', 'mb-3'], node);
   const topText = HTMLElem('h2', [], node);
   const textDisplay = HTMLElem('h1', ['display-3'], node);
   const bottomText = HTMLElem('h2', [], node);
