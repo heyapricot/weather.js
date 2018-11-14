@@ -23,7 +23,9 @@ const CityForm = () => {
 
   button.node.addEventListener('click', onClickSubmit);
 
-  return { addClickCallback, getInputData, node, unitSystem };
+  return {
+    addClickCallback, getInputData, node, unitSystem,
+  };
 };
 
 export default CityForm;
