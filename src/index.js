@@ -16,7 +16,7 @@ column.node.appendChild(WeatherDisplay.node);
 const form = CityForm();
 form.node.classList.toggle('my-5');
 const onClickSubmit = () => {
-  DataFetcher.getWeatherData(form.getInputData().city, form.unitSystem()).then(data => WeatherDisplay.setTemperature(data.main.temp, WeatherDisplay.units()[form.unitSystem()]));
+  DataFetcher.getWeatherData(form.getInputData().city, form.unitSystem()).then(data => WeatherDisplay.setTemperature(data.main.temp, WeatherDisplay.units()[form.unitSystem()], data.name, data.sys.country));
 };
 form.addClickCallback(onClickSubmit);
 column.node.appendChild(form.node);
