@@ -5,7 +5,19 @@ const WeatherDisplay = (() => {
   const container = HTMLElem('div', ['container']);
   const { node } = container;
   node.id = 'temperatureText';
-  const icon = HTMLElem('i', ['fas', 'fa-thermometer-three-quarters', 'fa-10x', 'mb-3'], node);
+  const weatherIcon = (() => {
+    const icon = HTMLElem('i', ['fa-10x', 'mb-3'], node);
+    let activeStyle = NaN;
+    const setIconStyle = (iconCssClasses) => {
+      if (!Number.isNaN(activeStyle)) {
+        activeStyle.forEach(cssClass => icon.node.classList.toggle(cssClass));
+      }
+      iconCssClasses.map(cssClass => icon.node.classList.toggle(cssClass));
+      activeStyle = iconCssClasses;
+    };
+    return { ...icon, setIconStyle };
+  })();
+  weatherIcon.setIconStyle(['fas', 'fa-thermometer-three-quarters']);
   const topText = HTMLElem('h2', [], node);
   const textDisplay = HTMLElem('h1', ['display-3'], node);
   const bottomText = HTMLElem('h2', [], node);
