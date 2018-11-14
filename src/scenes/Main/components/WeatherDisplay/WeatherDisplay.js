@@ -26,6 +26,29 @@ const WeatherDisplay = (() => {
     topText.node.textContent = 'Current temperature:';
     textDisplay.node.textContent = `${temperature} ${system}`;
     bottomText.node.textContent = `in ${city}, ${country}`;
+    if (system === units().metric) {
+      switch (true) {
+        case (temperature < 16):
+          weatherIcon.setIconStyle(['fas', 'fa-thermometer-empty', 'text-info']);
+          break;
+        case (temperature < 24):
+          weatherIcon.setIconStyle(['fas', 'fa-thermometer-half', 'text-warning']);
+          break;
+        case (temperature >= 24):
+          weatherIcon.setIconStyle(['fas', 'fa-thermometer-three-quarters', 'text-danger']);
+      }
+    } else if (system === units().imperial) {
+      switch (true) {
+        case (temperature < 60):
+          weatherIcon.setIconStyle(['fas', 'fa-thermometer-empty', 'text-info']);
+          break;
+        case (temperature < 75):
+          weatherIcon.setIconStyle(['fas', 'fa-thermometer-half', 'text-warning']);
+          break;
+        case (temperature >= 75):
+          weatherIcon.setIconStyle(['fas', 'fa-thermometer-three-quarters', 'text-danger']);
+      }
+    }
   };
 
   return { node, setTemperature, units };
